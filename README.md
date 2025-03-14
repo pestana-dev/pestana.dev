@@ -1,6 +1,2 @@
-# Gabriela
-
-## Teste de criação de repositório (com Karla Corrêa)
-
-* Criando um repositório
-* Dando "Pinned" em um repositório
+# Olá!
+Isso aqui virará outra coisa que ainda não sei no futuro. Por agora é só um README inútil.
