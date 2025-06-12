@@ -4,35 +4,36 @@ import styles from "../assets/BackgroundVideo.module.css"; // estilo separado pa
 
 const valentinesDay = () => {
 const videoRef = useRef(null);
-  const [unmuted, setUnmuted] = useState(false);
+  const [started, setStarted] = useState(false);
+
+  const handleStartVideo = () => {
+    if (videoRef.current && !started) {
+      videoRef.current.muted = false;
+      videoRef.current.volume = 0.6;
+      videoRef.current.play().catch((err) => {
+        console.error('Erro ao tentar reproduzir vídeo:', err);
+      });
+      setStarted(true);
+    }
+  };
 
   useEffect(() => {
-    const unmuteVideo = () => {
-      if (videoRef.current && !unmuted) {
-        videoRef.current.muted = false;
-        videoRef.current.volume = 0.6;
-        videoRef.current.play().catch(() => {}); // evita erro se play for bloqueado
-        setUnmuted(true);
-      }
-    };
-
-    // Adiciona os eventos para clique e toque
-    window.addEventListener('click', unmuteVideo);
-    window.addEventListener('touchstart', unmuteVideo);
+    // Dispara play no primeiro clique ou toque
+    window.addEventListener('click', handleStartVideo);
+    window.addEventListener('touchstart', handleStartVideo);
 
     return () => {
-      window.removeEventListener('click', unmuteVideo);
-      window.removeEventListener('touchstart', unmuteVideo);
+      window.removeEventListener('click', handleStartVideo);
+      window.removeEventListener('touchstart', handleStartVideo);
     };
-  }, [unmuted]);
+  }, [started]);
+
 
 
   return (
     <div className={styles.backgroundContainer}>
       <video
         className={styles.backgroundVideo}
-        autoPlay
-        muted
         loop
         playsInline
         ref={videoRef}
