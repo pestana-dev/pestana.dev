@@ -3,22 +3,29 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../assets/BackgroundVideo.module.css"; // estilo separado para clareza
 
 const valentinesDay = () => {
-  const videoRef = useRef(null);
+const videoRef = useRef(null);
   const [unmuted, setUnmuted] = useState(false);
 
-  const handleUserInteraction = () => {
-    if (videoRef.current && !unmuted) {
-      videoRef.current.muted = false;
-      videoRef.current.volume = 0.6;
-      videoRef.current.play(); // reativa se necessário
-      setUnmuted(true);
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener("click", handleUserInteraction);
-    return () => window.removeEventListener("click", handleUserInteraction);
-  }, []);
+    const unmuteVideo = () => {
+      if (videoRef.current && !unmuted) {
+        videoRef.current.muted = false;
+        videoRef.current.volume = 0.6;
+        videoRef.current.play().catch(() => {}); // evita erro se play for bloqueado
+        setUnmuted(true);
+      }
+    };
+
+    // Adiciona os eventos para clique e toque
+    window.addEventListener('click', unmuteVideo);
+    window.addEventListener('touchstart', unmuteVideo);
+
+    return () => {
+      window.removeEventListener('click', unmuteVideo);
+      window.removeEventListener('touchstart', unmuteVideo);
+    };
+  }, [unmuted]);
+
 
   return (
     <div className={styles.backgroundContainer}>
