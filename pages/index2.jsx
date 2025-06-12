@@ -25,6 +25,7 @@ const valentinesDay = () => {
       <video
         className={styles.backgroundVideo}
         autoPlay
+        muted
         loop
         playsInline
         ref={videoRef}
