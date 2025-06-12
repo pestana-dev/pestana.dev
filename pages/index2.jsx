@@ -1,14 +1,23 @@
 import React from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../assets/BackgroundVideo.module.css"; // estilo separado para clareza
 
 const valentinesDay = () => {
   const videoRef = useRef(null);
+  const [unmuted, setUnmuted] = useState(false);
+
+  const handleUserInteraction = () => {
+    if (videoRef.current && !unmuted) {
+      videoRef.current.muted = false;
+      videoRef.current.volume = 0.6;
+      videoRef.current.play(); // reativa se necessário
+      setUnmuted(true);
+    }
+  };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.volume = 0.6; // volume entre 0.0 e 1.0
-    }
+    window.addEventListener("click", handleUserInteraction);
+    return () => window.removeEventListener("click", handleUserInteraction);
   }, []);
 
   return (
