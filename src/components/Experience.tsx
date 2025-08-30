@@ -1,6 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building, Calendar, MapPin, ExternalLink, Upload, Image } from "lucide-react";
+import {
+  Building,
+  Calendar,
+  MapPin,
+  ExternalLink,
+  Upload,
+  Image,
+} from "lucide-react";
 
 const Experience = () => {
   const experiences = [
@@ -13,11 +20,24 @@ const Experience = () => {
       responsibilities: [
         "Resolução de problemas de usabilidade em dispositivos móveis",
         "Manutenção dos sistemas da empresa",
-        "Desenvolvimento de melhorias nas integrações API Rest"
+        "Desenvolvimento de melhorias nas integrações API Rest",
       ],
-      technologies: ["React", "Vue.js", "TypeScript", "Node.js", "API Rest", "Git", "Bitbucket", "GCP", "Firebase", "Docker", "CI/CD", "MongoDB"],
+      technologies: [
+        "React",
+        "Vue.js",
+        "TypeScript",
+        "Node.js",
+        "API Rest",
+        "Git",
+        "Bitbucket",
+        "GCP",
+        "Firebase",
+        "Docker",
+        "CI/CD",
+        "MongoDB",
+      ],
       portfolioImages: [],
-      repositoryLink: ""
+      repositoryLink: "",
     },
     {
       company: "Mundiware Systems",
@@ -29,45 +49,64 @@ const Experience = () => {
         "Criação de landing pages otimizadas para SEO",
         "Melhoria na conversão de visitantes",
         "Liderança em projetos de UX/UI e email marketing",
-        "Atuação como Product Owner"
+        "Atuação como Product Owner",
       ],
-      technologies: ["HTML", "CSS", "JavaScript", "SEO", "Email Marketing", "UX/UI"],
+      technologies: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SEO",
+        "Email Marketing",
+        "UX/UI",
+      ],
       portfolioImages: [],
-      repositoryLink: ""
-    }
+      repositoryLink: "",
+    },
   ];
 
   const certifications = [
     {
-      title: "Desenvolvimento de Games Completo",
-      institution: "Danki Code",
+      title: "Unity Essentials",
+      institution: "Unity Learn",
       period: "Julho 2025 - Presente",
-      status: "Em andamento"
+      status: "Em andamento",
     },
     {
       title: "Curso.dev",
       institution: "Filipe Deschamps",
       period: "Março 2025 - Presente",
-      status: "Em andamento"
+      status: "Em andamento",
     },
     {
       title: "English Course Certificate (ESL)",
       institution: "Times Idiomas",
       period: "Novembro 2022 - Julho 2024",
-      status: "Concluído"
+      status: "Concluído",
     },
     {
       title: "Certificação Semana Spring React",
       institution: "Dev Superior",
       period: "Setembro 2022",
-      status: "Concluído"
+      status: "Concluído",
     },
     {
       title: "Certificação SEO Expert",
       institution: "Alura",
       period: "Abril 2017 - Julho 2017",
-      status: "Concluído"
-    }
+      status: "Concluído",
+    },
+    {
+      title: "Certificação Web Designer",
+      institution: "SOS Tecnologia e Educação",
+      period: "Janeiro 2015 - Janeiro 2016",
+      status: "Concluído",
+    },
+    {
+      title: "Certificação Designer Gráfico",
+      institution: "SOS Tecnologia e Educação",
+      period: "Janeiro 2015 - Janeiro 2016",
+      status: "Concluído",
+    },
   ];
 
   return (
@@ -89,7 +128,10 @@ const Experience = () => {
           </h3>
           <div className="space-y-8 max-w-4xl mx-auto">
             {experiences.map((exp, index) => (
-              <Card key={index} className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300">
+              <Card
+                key={index}
+                className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300"
+              >
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
                     <div className="mb-4 md:mb-0">
@@ -98,9 +140,15 @@ const Experience = () => {
                         <h4 className="text-xl font-bold text-foreground">
                           {exp.company}
                         </h4>
-                        <Badge 
-                          variant={exp.type === "Atual" ? "default" : "secondary"}
-                          className={exp.type === "Atual" ? "bg-primary text-primary-foreground" : ""}
+                        <Badge
+                          variant={
+                            exp.type === "Atual" ? "default" : "secondary"
+                          }
+                          className={
+                            exp.type === "Atual"
+                              ? "bg-primary text-primary-foreground"
+                              : ""
+                          }
                         >
                           {exp.type}
                         </Badge>
@@ -127,8 +175,13 @@ const Experience = () => {
                     </h6>
                     <ul className="space-y-2">
                       {exp.responsibilities.map((resp, respIndex) => (
-                        <li key={respIndex} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="text-primary mt-1 flex-shrink-0">•</span>
+                        <li
+                          key={respIndex}
+                          className="flex items-start gap-2 text-muted-foreground"
+                        >
+                          <span className="text-primary mt-1 flex-shrink-0">
+                            •
+                          </span>
                           <span>{resp}</span>
                         </li>
                       ))}
@@ -141,7 +194,7 @@ const Experience = () => {
                     </h6>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
-                        <Badge 
+                        <Badge
                           key={techIndex}
                           variant="outline"
                           className="border-primary/20 text-primary hover:bg-primary-light"
@@ -171,13 +224,16 @@ const Experience = () => {
                         </a>
                       )}
                     </div>
-                    
+
                     {exp.portfolioImages.length > 0 ? (
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                         {exp.portfolioImages.map((image, imgIndex) => (
-                          <div key={imgIndex} className="aspect-video bg-muted rounded-lg overflow-hidden border border-border">
-                            <img 
-                              src={image} 
+                          <div
+                            key={imgIndex}
+                            className="aspect-video bg-muted rounded-lg overflow-hidden border border-border"
+                          >
+                            <img
+                              src={image}
                               alt={`Trabalho realizado na ${exp.company}`}
                               className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             />
@@ -187,7 +243,10 @@ const Experience = () => {
                     ) : (
                       <div className="flex items-center justify-center py-8 border-2 border-dashed border-border rounded-lg bg-muted/30">
                         <div className="text-center">
-                          <Upload size={32} className="mx-auto text-muted-foreground mb-2" />
+                          <Upload
+                            size={32}
+                            className="mx-auto text-muted-foreground mb-2"
+                          />
                           <p className="text-sm text-muted-foreground">
                             Imagens do portfólio serão adicionadas em breve
                           </p>
@@ -208,15 +267,24 @@ const Experience = () => {
           </h3>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {certifications.map((cert, index) => (
-              <Card key={index} className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300">
+              <Card
+                key={index}
+                className="bg-gradient-card border-border shadow-card hover:shadow-elegant transition-all duration-300"
+              >
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start gap-3 mb-3">
                     <h4 className="font-semibold text-foreground flex-1">
                       {cert.title}
                     </h4>
-                    <Badge 
-                      variant={cert.status === "Em andamento" ? "default" : "secondary"}
-                      className={`shrink-0 ${cert.status === "Em andamento" ? "bg-primary text-primary-foreground" : ""}`}
+                    <Badge
+                      variant={
+                        cert.status === "Em andamento" ? "default" : "secondary"
+                      }
+                      className={`shrink-0 ${
+                        cert.status === "Em andamento"
+                          ? "bg-primary text-primary-foreground"
+                          : ""
+                      }`}
                     >
                       {cert.status}
                     </Badge>
@@ -224,9 +292,7 @@ const Experience = () => {
                   <p className="text-primary font-medium mb-2">
                     {cert.institution}
                   </p>
-                  <p className="text-sm text-muted-foreground">
-                    {cert.period}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{cert.period}</p>
                 </CardContent>
               </Card>
             ))}
