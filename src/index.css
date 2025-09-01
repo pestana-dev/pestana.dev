@@ -40,9 +40,21 @@ All colors MUST be HSL.
     --ring: 144 60% 45%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(144 60% 45%), hsl(144 70% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(144 45% 85%) 0%, hsl(144 55% 88%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(144 25% 96%) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(144 60% 45%),
+      hsl(144 70% 55%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(144 45% 85%) 0%,
+      hsl(144 55% 88%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100%) 0%,
+      hsl(144 25% 96%) 100%
+    );
 
     /* Shadows */
     --shadow-primary: 0 4px 20px hsl(144 60% 45% / 0.15);
@@ -78,8 +90,11 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 142 71% 45%;
+    --primary-foreground: 142 85% 95%;
+    --primary-hover: 142 76% 36%;
+    --primary-light: 142 69% 20%;
+    --primary-glow: 142 71% 58%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -96,6 +111,29 @@ All colors MUST be HSL.
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(142 71% 45%),
+      hsl(142 71% 58%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(222.2 84% 4.9%) 0%,
+      hsl(217.2 32.6% 17.5%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(222.2 84% 4.9%) 0%,
+      hsl(217.2 32.6% 17.5%) 100%
+    );
+
+    /* Dark mode shadows */
+    --shadow-primary: 0 4px 20px hsl(142 71% 45% / 0.25);
+    --shadow-card: 0 8px 30px hsl(0 0% 0% / 0.3);
+    --shadow-elegant: 0 10px 40px hsl(142 71% 45% / 0.2);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -123,13 +161,23 @@ All colors MUST be HSL.
 
   /* Custom animations */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes hop {
-    0%, 100% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-5px) scale(1.05); }
+    0%,
+    100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-5px) scale(1.05);
+    }
   }
 
   .animate-float {
